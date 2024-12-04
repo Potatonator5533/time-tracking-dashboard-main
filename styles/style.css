@@ -2,51 +2,52 @@
 /* // <weight>: Use a value from 300 to 900 */
 
 .rubik-regular1 {
-  font-family: "Rubik", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 15px;
-  color: #BBC0FF;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 15px;
+    color: #BBC0FF;
 }
 
 .rubik-regular2 {
-  font-family: "Rubik", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 18px;
-  color: #7078C9;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 18px;
+    color: #7078C9;
 }
+
 .rubik-regular2:hover {
     color: white;
 }
 
 .rubik-medium {
-  font-family: "Rubik", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: medium;
-  font-style: normal;
-  font-size: 18px;
-  color: white;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: medium;
+    font-style: normal;
+    font-size: 18px;
+    color: white;
 }
 
 .rubik-light1 {
-  font-family: "Rubik", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 100;
-  font-style: normal;
-  font-size: 40px;
-  color: white;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 40px;
+    color: white;
 }
 
 .rubik-light2 {
-  font-family: "Rubik", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 100;
-  font-style: normal;
-  font-size: 56px;
-  color: white;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 56px;
+    color: white;
 }
 
 .selected {
@@ -73,8 +74,9 @@ body {
     grid-row: span 2;
     /* display: flex;
     flex-direction: column; */
-    
+
 }
+
 /* .workCard,
 .playCard,
 .studyCard,
@@ -90,6 +92,8 @@ body {
 
 .categoryFg {
     /* height: 200px; */
+    grid-column: 1 / span 10;
+    grid-row: 3 / span 10;
 }
 
 .categoryFg:hover {
@@ -102,6 +106,7 @@ body {
 
 .workBg {
     background-color: #FF8B64;
+
 }
 
 .playBg {
@@ -130,5 +135,48 @@ body {
 .exerciseBg,
 .socialBg,
 .selfCareBg {
-    padding-top: 2.813rem;
+    /* padding-top: 2.813rem; */
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+}
+
+.workBgImg {
+    background-image: url(../images/icon-work.svg);
+}
+
+.playBgImg {
+    background-image: url(../images/icon-play.svg);
+}
+
+.studyBgImg {
+    background-image: url(../images/icon-study.svg);
+}
+
+.exerciseBgImg {
+    background-image: url(../images/icon-exercise.svg);
+}
+
+.socialBgImg {
+    background-image: url(../images/icon-social.svg);
+}
+
+.selfCareBgImg {
+    background-image: url(../images/icon-self-care.svg);
+}
+
+
+.workBgImg,
+.playBgImg,
+.studyBgImg,
+.exerciseBgImg,
+.socialBgImg,
+.selfCareBgImg {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    grid-column: 7 / span 3;
+    grid-row: 1 / span 3;
 }
