@@ -34,54 +34,105 @@ monthlyBtn.addEventListener("click", () => {
   Displayinfo();
 });
 
-function Displayinfo() {
-  if (currentlySet == "daily") {
-    workCurrentHrsInfo.innerText = "5hrs";
-    workPrevHrsInfo.innerText = "Yesterday - 7hrs";
-    playCurrentHrsInfo.innerText = "1hr";
-    playPrevHrsInfo.innerText = "Yesterday - 2hrs";
-    studyCurrentHrsInfo.innerText = "0hrs";
-    studyPrevHrsInfo.innerText = "Yesterday - 1hr";
-    exerciseCurrentHrsInfo.innerText = "1hr";
-    exercisePrevHrsInfo.innerText = "Yesterday - 1hr";
-    socialCurrentHrsInfo.innerText = "1hr";
-    socialPrevHrsInfo.innerText = "Yesterday - 3hrs";
-    selfCareCurrentHrsInfo.innerText = "0hrs";
-    selfCarePrevHrsInfo.innerText = "Yesterday - 1hr";
-    dailyBtn.className = "rubik-regular2 selected";
-    weeklyBtn.className = "rubik-regular2";
-    monthlyBtn.className = "rubik-regular2";
-  } else if (currentlySet == "weekly") {
-    workCurrentHrsInfo.innerText = "32hrs";
-    workPrevHrsInfo.innerText = "Last Week - 36hrs";
-    playCurrentHrsInfo.innerText = "10hrs";
-    playPrevHrsInfo.innerText = "Last Week - 8hrs";
-    studyCurrentHrsInfo.innerText = "4hrs";
-    studyPrevHrsInfo.innerText = "Last Week - 7hrs";
-    exerciseCurrentHrsInfo.innerText = "4hrs";
-    exercisePrevHrsInfo.innerText = "Last Week - 5hrs";
-    socialCurrentHrsInfo.innerText = "5hrs";
-    socialPrevHrsInfo.innerText = "Last Week - 10hrs";
-    selfCareCurrentHrsInfo.innerText = "2hrs";
-    selfCarePrevHrsInfo.innerText = "Last Week - 2hrs";
-    dailyBtn.className = "rubik-regular2";
-    weeklyBtn.className = "rubik-regular2 selected";
-    monthlyBtn.className = "rubik-regular2";
+function GetData() {
+  return fetch("../data.json")
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
+    });
+}
+
+function SortInfoBySetting(i, j, displayCurrent, displayPrevious) {
+  if (displayCurrent != 1) {
+    displayCurrent += "hrs";
   } else {
-    workCurrentHrsInfo.innerText = "103hrs";
-    workPrevHrsInfo.innerText = "Last Month - 128hrs";
-    playCurrentHrsInfo.innerText = "23hrs";
-    playPrevHrsInfo.innerText = "Last Month - 29hrs";
-    studyCurrentHrsInfo.innerText = "13hrs";
-    studyPrevHrsInfo.innerText = "Last Month - 19hrs";
-    exerciseCurrentHrsInfo.innerText = "11hrs";
-    exercisePrevHrsInfo.innerText = "Last Month - 18hrs";
-    socialCurrentHrsInfo.innerText = "21hrs";
-    socialPrevHrsInfo.innerText = "Last Month - 23hrs";
-    selfCareCurrentHrsInfo.innerText = "7hrs";
-    selfCarePrevHrsInfo.innerText = "Last Month - 11hrs";
-    dailyBtn.className = "rubik-regular2";
-    weeklyBtn.className = "rubik-regular2";
-    monthlyBtn.className = "rubik-regular2 selected";
+    displayCurrent += "hr";
   }
+  if (displayPrevious != 1) {
+    displayPrevious += "hrs";
+  } else {
+    displayPrevious += "hr";
+  }
+  if (j == 0) {
+    switch (i) {
+      case 0:
+        workCurrentHrsInfo.innerText = displayCurrent;
+        break;
+      case 1:
+        playCurrentHrsInfo.innerText = displayCurrent;
+        break;
+      case 2:
+        studyCurrentHrsInfo.innerText = displayCurrent;
+        break;
+      case 3:
+        exerciseCurrentHrsInfo.innerText = displayCurrent;
+        break;
+      case 4:
+        socialCurrentHrsInfo.innerText = displayCurrent;
+        break;
+      default:
+        selfCareCurrentHrsInfo.innerText = displayCurrent;
+        break;
+    }
+  } else {
+    switch (i) {
+      case 0:
+        workPrevHrsInfo.innerText = "Yesterday - " + displayPrevious;
+        break;
+      case 1:
+        playPrevHrsInfo.innerText = "Yesterday - " + displayPrevious;
+        break;
+      case 2:
+        studyPrevHrsInfo.innerText = "Yesterday - " + displayPrevious;
+        break;
+      case 3:
+        exercisePrevHrsInfo.innerText = "Yesterday - " + displayPrevious;
+        break;
+      case 4:
+        socialPrevHrsInfo.innerText = "Yesterday - " + displayPrevious;
+        break;
+      default:
+        selfCarePrevHrsInfo.innerText = "Yesterday - " + displayPrevious;
+        break;
+    }
+  }
+}
+
+function Displayinfo() {
+  GetData().then((data) => {
+    if (currentlySet == "daily") {
+      for (let i = 0; i <= 5; i++) {
+        for (let j = 0; j < 2; j++) {
+          let displayCurrent = data[i].timeframes.daily.current;
+          let displayPrevious = data[i].timeframes.daily.previous;
+          SortInfoBySetting(i, j, displayCurrent, displayPrevious);
+        }
+      }
+      dailyBtn.className = "rubik-regular2 selected";
+      weeklyBtn.className = "rubik-regular2";
+      monthlyBtn.className = "rubik-regular2";
+    } else if (currentlySet == "weekly") {
+      for (let i = 0; i <= 5; i++) {
+        for (let j = 0; j < 2; j++) {
+          let displayCurrent = data[i].timeframes.weekly.current;
+          let displayPrevious = data[i].timeframes.weekly.previous;
+          SortInfoBySetting(i, j, displayCurrent, displayPrevious);
+        }
+      }
+      dailyBtn.className = "rubik-regular2";
+      weeklyBtn.className = "rubik-regular2 selected";
+      monthlyBtn.className = "rubik-regular2";
+    } else {
+      for (let i = 0; i <= 5; i++) {
+        for (let j = 0; j < 2; j++) {
+          let displayCurrent = data[i].timeframes.monthly.current;
+          let displayPrevious = data[i].timeframes.monthly.previous;
+          SortInfoBySetting(i, j, displayCurrent, displayPrevious);
+        }
+      }
+      dailyBtn.className = "rubik-regular2";
+      weeklyBtn.className = "rubik-regular2";
+      monthlyBtn.className = "rubik-regular2 selected";
+    }
+  });
 }
