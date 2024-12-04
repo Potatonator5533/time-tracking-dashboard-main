@@ -1,0 +1,134 @@
+/* // <uniquifier>: Use a unique and descriptive class name */
+/* // <weight>: Use a value from 300 to 900 */
+
+.rubik-regular1 {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 15px;
+  color: #BBC0FF;
+}
+
+.rubik-regular2 {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18px;
+  color: #7078C9;
+}
+.rubik-regular2:hover {
+    color: white;
+}
+
+.rubik-medium {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: medium;
+  font-style: normal;
+  font-size: 18px;
+  color: white;
+}
+
+.rubik-light1 {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 40px;
+  color: white;
+}
+
+.rubik-light2 {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 56px;
+  color: white;
+}
+
+.selected {
+    color: white;
+}
+
+body {
+    background-color: #0E1323;
+}
+
+* {
+    border-radius: 15px;
+}
+
+.cardsGrid {
+    display: grid;
+    gap: 1.875rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    margin: 0 10%;
+}
+
+.userCard {
+    grid-row: span 2;
+    /* display: flex;
+    flex-direction: column; */
+    
+}
+/* .workCard,
+.playCard,
+.studyCard,
+.exerciseCard,
+.socialCard,
+.selfCareCard, */
+
+.userBg,
+.categoryFg {
+    background-color: #1C204B;
+    /* border-radius: 15px; */
+}
+
+.categoryFg {
+    /* height: 200px; */
+}
+
+.categoryFg:hover {
+    background-color: #33397A;
+}
+
+.mainFg {
+    background-color: #5747EA;
+}
+
+.workBg {
+    background-color: #FF8B64;
+}
+
+.playBg {
+    background-color: #55C2E6;
+}
+
+.studyBg {
+    background-color: #FF5E7D;
+}
+
+.exerciseBg {
+    background-color: #4BCF82;
+}
+
+.socialBg {
+    background-color: #7335D2;
+}
+
+.selfCareBg {
+    background-color: #F1C75B;
+}
+
+.workBg,
+.playBg,
+.studyBg,
+.exerciseBg,
+.socialBg,
+.selfCareBg {
+    padding-top: 2.813rem;
+}
