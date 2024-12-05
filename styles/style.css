@@ -17,6 +17,12 @@
     font-style: normal;
     font-size: 18px;
     color: #7078C9;
+    text-align: start;
+    margin-bottom: 21px;
+}
+
+#monthlyBtn {
+    margin-bottom: 0;
 }
 
 .rubik-regular2:hover {
@@ -50,6 +56,10 @@
     color: white;
 }
 
+.userTextPadding {
+    padding: 30px;
+}
+
 .selected {
     color: white;
 }
@@ -62,12 +72,24 @@ body {
     border-radius: 15px;
 }
 
+button {
+    border: none;
+    background-color: transparent;
+}
+
 .cardsGrid {
     display: grid;
     gap: 1.875rem;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr 1fr;
     margin: 0 10%;
+}
+
+@media (max-width: 1200px) {
+    .cardsGrid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
 }
 
 .userCard {
@@ -77,12 +99,37 @@ body {
 
 }
 
-/* .workCard,
-.playCard,
-.studyCard,
-.exerciseCard,
-.socialCard,
-.selfCareCard, */
+.workCard {
+
+}
+
+.playCard {
+
+}
+
+.studyCard {
+
+}
+
+.exerciseCard {
+
+}
+
+.socialCard {
+
+}
+
+.selfCareCard {
+
+}
+
+
+@media (max-width: 1200px) {
+    .userCard {
+        grid-column: 1 / span 3;
+        grid-row: 1;
+    }
+}
 
 .userBg,
 .categoryFg {
@@ -94,6 +141,7 @@ body {
     /* height: 200px; */
     grid-column: 1 / span 10;
     grid-row: 3 / span 10;
+    padding: 1.875rem;
 }
 
 .categoryFg:hover {
@@ -102,6 +150,7 @@ body {
 
 .mainFg {
     background-color: #5747EA;
+    padding: 30px;
 }
 
 .workBg {
@@ -141,6 +190,13 @@ body {
     grid-template-rows: repeat(12, 1fr);
 }
 
+.mainFg img {
+    height: 5.5rem;
+    width: 5.5rem;
+    border: 3px solid white;
+    border-radius: 100%;
+}
+
 .workBgImg {
     background-image: url(../images/icon-work.svg);
 }
@@ -164,7 +220,6 @@ body {
 .selfCareBgImg {
     background-image: url(../images/icon-self-care.svg);
 }
-
 
 .workBgImg,
 .playBgImg,
